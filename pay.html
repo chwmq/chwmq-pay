@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>付款界面</title>
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      background:#f5f5f5;
+    }
+    img{
+      width:200px;
+      height:200px;
+      margin-bottom:16px;
+    }
+    p{
+      font-size:16px;
+      color:#333;
+    }
+  </style>
+</head>
+<body>
+  <!-- 二维码占位，请换成真实地址 -->
+  <img src="pay.png" alt="付款二维码">
+  <p id="desc">请使用微信扫描上方二维码完成付款</p>
+
+  <script>
+    // 读取 URL 参数 test
+    const params = new URLSearchParams(location.search);
+    const testText = params.get('test');
+    if (testText !== null) {
+      document.getElementById('desc').textContent = decodeURIComponent(testText);
+    }
+  </script>
+</body>
+</html>
